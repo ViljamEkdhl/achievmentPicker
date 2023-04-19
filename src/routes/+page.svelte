@@ -4,20 +4,16 @@
   let userId = '';
 
   async function handleSubmit() {    
-  const params = new URLSearchParams({
-      userId: userId,
-  })
-
   const payload = {
-    userId: userId
+    userId: userId,
+    type: "steamID64"
   }
     // Call an API to authenticate the user
-    const response = await fetch(`/api?${params}`, { 
+    const response = await fetch(`/api`, { 
     method: 'POST',
     body: JSON.stringify(payload)
     });
     const res = response.json();
-    console.log(res)
   }
 </script>
 
@@ -26,12 +22,12 @@
 <div class="login-form">
     <form on:submit|preventDefault={handleSubmit}>
       <label>
-          Username:
+          steamID64:
           <input bind:value={userId} required />
       </label>
       
       <button type="submit">Generate</button>
-      </form>
-  </div>
+    </form>
+</div>
 
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
