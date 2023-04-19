@@ -1,8 +1,8 @@
-import type { RequestHandler, EndpointOutput, Request  } from '@sveltejs/kit';
+import type { RequestHandler } from '@sveltejs/kit';
 import { STEAM_KEY } from "$env/static/private";
 
-export async function POST(request: Request): Promise<EndpointOutput> {
-    const { userId } = request.body as { userId: string };
+export async function POST(request: Request) {
+    const userId  = request.body;
     console.log("-------------------------------------INPUT----------------------------------------");
     console.log('User ID:', userId);
 
