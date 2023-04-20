@@ -17,7 +17,7 @@
   }
 </script>
 
-<h1>Welcome to SvelteKit</h1>
+<h1>Welcome to my AchievementPicker</h1>
 
 <div class="login-form">
     <form on:submit|preventDefault={handleSubmit}>
@@ -30,4 +30,4 @@
     </form>
 </div>
 
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+
