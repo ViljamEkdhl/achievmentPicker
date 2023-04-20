@@ -19,7 +19,7 @@ async function fetchSteamUser(id: String){
     const url = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${STEAM_KEY}&steamids=${id}`;
     const response = await fetch(url)
     const res = await response.json();
-    console.log("RESULT FROM STEAM FETCH")
-    console.log(res.response.players)
+    //console.log("RESULT FROM STEAM FETCH")
+    //console.log(res.response.players)
     return (res.response.players)
 }
