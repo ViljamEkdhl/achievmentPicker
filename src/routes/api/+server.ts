@@ -23,3 +23,11 @@ async function fetchSteamUser(id: String){
     //console.log(res.response.players)
     return (res.response.players)
 }
+
+async function fetchOwnedGames(){
+
+}
+
+async function fetchAchievements(){
+    
+}
