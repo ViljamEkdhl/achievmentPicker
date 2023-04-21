@@ -1,6 +1,7 @@
 <script>
 	import SteamProfile from '../components/steamProfile.svelte';
 	import { goto } from '$app/navigation';
+	import Dropdown from '../components/dropdown.svelte';
 
 	let userId = '';
 
@@ -9,10 +10,10 @@
 	 */
 	let success;
 
-	let profile = {
-		name: '',
-		img: ''
-	};
+  	/**
+	 * @type {any}
+	 */
+	let profile;
 
 	async function handleSubmit() {
 		const payload = {
@@ -35,9 +36,7 @@
 		});
 
 		if (res) {
-			console.log('Response from API:', res);
-			profile.img = res.body[0].avatarfull;
-			profile.name = res.body[0].personaname;
+			profile = res.body;
 			success = true;
 		} else {
 			console.error('Empty or invalid response from API');
@@ -47,7 +46,7 @@
 
 <h1>Welcome to my AchievementPicker</h1>
 
-<div class="login-form">
+<div class="user-form">
 	<form on:submit|preventDefault={handleSubmit}>
 		<label>
 			steamID64:
@@ -60,4 +59,6 @@
 
 {#if success}
 	<SteamProfile image={profile.img} name={profile.name} />
+  
+  <Dropdown content={profile.ownedGames}/>
 {/if}
