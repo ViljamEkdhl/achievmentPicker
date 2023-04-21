@@ -18,10 +18,9 @@
 	async function handleSubmit() {
 		const payload = {
 			userId: userId,
-			type: 'steamID64'
 		};
 		// Call an API to authenticate the user
-		const response = await fetch(`/api`, {
+		const response = await fetch(`/getUser`, {
 			method: 'POST',
 			body: JSON.stringify(payload)
 		});

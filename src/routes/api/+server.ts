@@ -1,5 +1,4 @@
-import type { RequestHandler } from '@sveltejs/kit';
-import { STEAM_KEY } from '$env/static/private';
+/*import { STEAM_KEY } from '$env/static/private';
 
 export async function POST({ request }) {
 	const input = await request.json();
@@ -50,4 +49,4 @@ async function fetchAchievements(id: String, game: String) {
 	const res = await response.json();
 	//console.log("RESULT FROM ACHIEVEMENTS FETCH")
 	//console.log(res.response)
-}
+}*/
