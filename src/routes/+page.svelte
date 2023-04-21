@@ -59,5 +59,5 @@
 {#if success}
 	<SteamProfile image={profile.img} name={profile.name} />
   
-  <Dropdown content={profile.ownedGames}/>
+  <Dropdown content={profile.ownedGames} userId={userId}/>
 {/if}

@@ -1,14 +1,17 @@
-<script>
-	/**
-	 * @type {Array<any>}
-	 */
-	export let content;
-	/**
-	 * @type {any}
-	 */
-	let appid;
+<script lang="ts">
+	export let content: Array<any>;
+    export let userId: any;
 
-	function handleSubmit() {}
+	async function handleSubmit(event: Event & { currentTarget: HTMLSelectElement }) {
+        const payload = {
+			userId: userId,
+            appId: event.currentTarget.value,
+		};
+        const response = await fetch(`/getAchievements`, {
+			method: 'POST',
+			body: JSON.stringify(payload)
+		});
+    }
 </script>
 
 <select bind:value={content} on:change={handleSubmit}>

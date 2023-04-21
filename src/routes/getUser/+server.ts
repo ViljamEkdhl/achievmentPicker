@@ -13,8 +13,8 @@ export async function POST({ request }) {
 
 	const user = await fetchSteamUser(input.userId);
 	const games = await fetchOwnedGames(input.userId);
-	console.log('GAMES');
-	console.log(games);
+	//console.log('GAMES');
+	//console.log(games);
 	profileInfo.name = user[0].personaname;
 	profileInfo.img = user[0].avatarfull;
 	profileInfo.ownedGames = games;
