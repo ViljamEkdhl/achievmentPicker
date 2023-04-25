@@ -1,6 +1,5 @@
 <script>
 	import SteamProfile from '../components/steamProfile.svelte';
-	import { goto } from '$app/navigation';
 	import Dropdown from '../components/dropdown.svelte';
 
 	let userId = '';
@@ -43,7 +42,7 @@
 	}
 </script>
 
-<h1>Welcome to my AchievementPicker</h1>
+<h1>AchievementPicker</h1>
 
 <div class="user-form">
 	<form on:submit|preventDefault={handleSubmit}>
@@ -57,7 +56,6 @@
 </div>
 
 {#if success}
-	<SteamProfile image={profile.img} name={profile.name} />
-  
-  <Dropdown content={profile.ownedGames} userId={userId}/>
+	<SteamProfile image={profile.img} name={profile.name}/>
+  	<Dropdown content={profile.ownedGames} userId={userId}/>
 {/if}

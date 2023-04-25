@@ -2,8 +2,8 @@ import { STEAM_KEY } from '$env/static/private';
 
 export async function POST({ request }) {
 	const input = await request.json();
-	console.log('Steam64 id from inputfield');
-	console.log(input.userId);
+	//console.log('Steam64 id from inputfield');
+	//console.log(input.userId);
 
 	let profileInfo = {
 		name: '',
@@ -27,6 +27,7 @@ async function fetchSteamUser(id: String) {
 	const res = await response.json();
 	//console.log("RESULT FROM USER FETCH")
 	//console.log(res.response.players)
+
 	return res.response.players;
 }
 
@@ -36,5 +37,6 @@ async function fetchOwnedGames(id: String) {
 	const res = await response.json();
 	//console.log("RESULT FROM OWNED GAMES FETCH")
 	//console.log(res.response.games)
+	
 	return res.response.games;
 }
