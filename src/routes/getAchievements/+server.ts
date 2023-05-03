@@ -7,8 +7,8 @@ export async function POST({ request }) {
 	console.log(input.appId);
 
 	const achiev = await fetchAchievements(input.userId, input.appId);
-	console.log('ACHIEVEMENTS');
-	console.log(achiev);
+	//console.log('ACHIEVEMENTS');
+	//console.log(achiev);
 
 	return new Response(JSON.stringify({ body: achiev }));
 }
@@ -23,7 +23,7 @@ async function fetchAchievements(id: String, game: String) {
 
 	let test = parseString(res);
 
-	return res;
+	return test;
 }
 
 function parseString(input: string) {
@@ -40,7 +40,7 @@ function parseString(input: string) {
 		achievements.push({ title, description });
 	});
 
-	console.log("ACHIEVEMENT NAMES")
-	console.log(achievements)
+	//console.log("ACHIEVEMENT NAMES")
+	//console.log(achievements)
 	return achievements;
 }

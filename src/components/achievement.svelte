@@ -1,22 +1,33 @@
 <script lang="ts">
-    export let input: any;
-    console.log("INPUT ACHIEVEMENTS")
-    console.log(input)
+  import { onMount, onDestroy } from 'svelte';
+	export let input: Array<{ title: string; description: string }>;
+	let randomElement = 0;
+
+	const setRandomIndex = (index: number) => {
+		randomElement = index;
+	};
+
+  onMount(() => {
+		setRandomIndex(Math.floor(Math.random() * input.length));
+	});
+
+	onDestroy(() => {
+		setRandomIndex(0);
+	});
+
+  $: {
+    setRandomIndex(Math.floor(Math.random() * input.length));
+  }
 </script>
 
-{#if input.achievements && input.achievements.length > 0}
-  <ul>
-    {#each input.achievements as achievement}
-      <li>
-        <p>{achievement.apiname}</p>
-      </li>
-    {/each}
-  </ul>
+{#if input && input.length > 0}
+	<div>
+		<p>{input[randomElement].title}</p>
+		<p>{input[randomElement].description}</p>
+	</div>
 {:else}
-  <p>No achievements found.</p>
+	<p>No achievements found.</p>
 {/if}
 
-
 <style>
-
 </style>
