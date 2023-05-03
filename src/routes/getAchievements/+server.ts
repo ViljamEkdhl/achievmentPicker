@@ -15,11 +15,11 @@ export async function POST({ request }) {
 
 // TODO: Implementera error handeling för om profilen är private får man inga achievements.
 async function fetchAchievements(id: String, game: String) {
-	const url = `http://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v0001/?appid=${game}&key=${STEAM_KEY}&steamid=${id}`;
+	const url = `https://steamcommunity.com/stats/${game}/achievements`;
 	const response = await fetch(url);
-	const res = await response.json();
-	//console.log("RESULT FROM ACHIEVEMENTS FETCH")
-	//console.log(res.playerstats)
+	const res = await response.text();
+	console.log("RESULT FROM ACHIEVEMENTS FETCH")
+	console.log(res)
 
-	return res.playerstats;
+	return res;
 }
