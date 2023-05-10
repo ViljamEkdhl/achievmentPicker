@@ -42,20 +42,61 @@
 	}
 </script>
 
-<h1>AchievementPicker</h1>
-
-<div class="user-form">
-	<form on:submit|preventDefault={handleSubmit}>
-		<label>
-			steamID64:
-			<input bind:value={userId} required />
-		</label>
-
-		<button type="submit">Generate</button>
-	</form>
+<div class="page-content">
+	<div class="user-form">
+		<form on:submit|preventDefault={handleSubmit}>
+			<label>
+				steamID64:
+				<input bind:value={userId} required />
+			</label>
+	
+			<button class="submit" type="submit">Generate</button>
+		</form>
+	</div>
+	
+	{#if success}
+		<SteamProfile image={profile.img} name={profile.name}/>
+		  <Dropdown content={profile.ownedGames} userId={userId}/>
+	{/if}
 </div>
 
-{#if success}
-	<SteamProfile image={profile.img} name={profile.name}/>
-  	<Dropdown content={profile.ownedGames} userId={userId}/>
-{/if}
+<style>
+	.user-form{
+	    display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: #f5f5f5;
+		padding: 20px;
+		margin: 20px;
+		border-radius: 5px;
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+	}
+
+	input{
+		margin: 10px 0;
+		padding: 10px;
+		font-size: 16px;
+		border: none;
+		border-radius: 5px;
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+		width: 100%;
+	}
+
+	.submit{
+		margin-top: 20px;
+		padding: 10px;
+		font-size: 16px;
+		color: white;
+		background-color: #2196F3;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+
+	.submit:hover{
+		background-color: #0d8bf1;
+	}
+</style>
