@@ -18,18 +18,16 @@
 
 <style>
     :global(body){
-        background-color: white;
+        background-color: black;
         overflow: hidden;
+		margin: 0;
     }
 
+	:global(p){
+		color: white;
+	}
+
     .wrapper {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: 100px 100px;
-		grid-template-areas:
-			'left top right'
-			'left centre right'
-            'left centre right';
 		min-height: 100%;
         width: 100%;
         position: absolute;
@@ -40,20 +38,12 @@
 		grid-area: top;
 		display: flex;
 		justify-content: center;
-		background-color: darkgray;
-	}
+		background-image: radial-gradient( circle 850px at 50% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2%);
+		border-bottom: 3px solid rgba(9,29,85,1);
+		border-radius: 80%;
+	}	
 
 	h1 {
-		color: black;
-	}
-
-	.left {
-		grid-area: left;
-		background-color: darkgray;
-	}
-
-	.right {
-		grid-area: right;
-		background-color: darkgray;
+		color: white;
 	}
 </style>
