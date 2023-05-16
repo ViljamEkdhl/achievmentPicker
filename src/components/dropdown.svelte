@@ -2,6 +2,7 @@
 	import Achievement from "./achievement.svelte";
 	export let content: Array<any>;
 	export let userId: any;
+	export let customUrl: any;
 
 	let showAchievement = false;
 
@@ -10,7 +11,8 @@
 	async function handleSubmit(event: Event & { currentTarget: HTMLSelectElement }) {
 		const payload = {
 			userId: userId,
-			appId: event.currentTarget.value
+			appId: event.currentTarget.value,
+			customUrl: customUrl
 		};
 		const response = await fetch(`/getAchievements`, {
 			method: 'POST',
