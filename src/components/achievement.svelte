@@ -21,13 +21,26 @@
 </script>
 
 {#if input && input.length > 0}
-	<div>
-		<p>{input[randomElement].title}</p>
-		<p>{input[randomElement].description}</p>
+	<div class="achievement">
+		<p>Name: {input[randomElement].title}</p>
+		<p>Description: {input[randomElement].description}</p>
 	</div>
 {:else}
-	<p>No achievements found.</p>
+	<p class="not-found">No achievements found.</p>
 {/if}
 
 <style>
+	p{
+		font-size: 2rem;
+		color: black;
+	}
+	.achievement{
+		background-color: #fff;
+		width: 50rem;
+	}
+
+	.not-found{
+		background-color: #fff;
+	}
+
 </style>

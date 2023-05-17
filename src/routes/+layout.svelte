@@ -2,48 +2,55 @@
 
 </script>
 
+<nav>
+	<h1>AchievementPicker</h1>
+</nav>
+
 <div class="wrapper">
-	<nav>
-		<h1>AchievementPicker</h1>
-	</nav>
-
-	<section class="left" />
-
-	<section class="right" />
-
     <section class="content">
         <slot></slot>
     </section>
 </div>
 
 <style>
+
+	:global(html, body){
+		padding: 0;
+		height: 100%;
+	}
+
     :global(body){
-        background-color: black;
-        overflow: hidden;
 		margin: 0;
+		padding: 0;
+		height: 100%;
+		background-image: url("../assets/background.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+        overflow: hidden;
     }
 
 	:global(p){
-		color: white;
+		color: aliceblue;
 	}
 
     .wrapper {
 		min-height: 100%;
-        width: 100%;
-        position: absolute;
-        z-index: -1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	nav {
 		grid-area: top;
 		display: flex;
-		justify-content: center;
-		background-image: radial-gradient( circle 850px at 50% -21.8%,  rgba(9,29,85,1) 0.2%, rgba(0,0,0,1) 100.2%);
-		border-bottom: 3px solid rgba(9,29,85,1);
-		border-radius: 80%;
+		padding-left: 27px;
+		background-color: #171a21;
 	}	
 
 	h1 {
-		color: white;
+		font-size: 2.5rem;
+		color: aliceblue;
+		font-family: "Motiva Sans", Sans-serif;
 	}
+
 </style>

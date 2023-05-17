@@ -44,49 +44,46 @@
 
 <div class="page-content">
 	<div class="user-form">
+		<p>SteamID</p>
 		<form on:submit|preventDefault={handleSubmit}>
 			<label>
-				steamID64:
 				<input bind:value={userId} required />
 			</label>
 	
-			<button class="submit" type="submit">Generate</button>
+			<button class="submit" type="submit">🔍</button>
 		</form>
 	</div>
 	
-	{#if success}
+	<div class="profile-info">
+		{#if success}
 		<SteamProfile image={profile.img} name={profile.name}/>
 		<Dropdown content={profile.ownedGames} userId={userId} customUrl={profile.customUrl}/>
-	{/if}
+		{/if}
+	</div>
 </div>
 
 <style>
-	.user-form{
-	    display: flex;
+	.user-form {
+		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
 		background-color: #f5f5f5;
 		padding: 20px;
 		margin: 20px;
-		width: 25%;
 		border-radius: 5px;
 		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-
 	}
 
-	input{
+	input {
 		margin: 10px 0;
 		padding: 10px;
 		font-size: 16px;
 		border: none;
 		border-radius: 5px;
 		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-		width: 100%;
 	}
 
-	.submit{
-		margin-top: 20px;
+	.submit {
 		padding: 10px;
 		font-size: 16px;
 		color: white;
@@ -95,6 +92,18 @@
 		border-radius: 5px;
 		cursor: pointer;
 		transition: background-color 0.3s ease;
+	}
+
+	p{
+		color: black;
+		font-family: 'Poppins', sans-serif;
+		font-size: 20px;
+	}
+
+	.profile-info{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.submit:hover{

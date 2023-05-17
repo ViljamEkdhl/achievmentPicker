@@ -19,9 +19,10 @@
 		font-size: 2rem;
 		font-weight: bold;
 		font-family: Arial, Helvetica, sans-serif;
+		text-align: center;
 	}
 
 	img {
-		border-radius: 40%;
+		border-radius: 20%;
 	}
 </style>

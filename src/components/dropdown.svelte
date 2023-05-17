@@ -33,16 +33,44 @@
 	}
 </script>
 
-<select on:change={handleSubmit}>
-	{#each content as item}
-		<option value={item.appid}>{item.name}</option>
-	{/each}
-</select>
-
-
-{#if showAchievement}
-	<svelte:component this={Achievement} input={achievements}/>
-{/if}
+<div class="dropdown">
+	<select on:change={handleSubmit}>
+		{#each content as item}
+			<option value={item.appid}>{item.name}</option>
+		{/each}
+	</select>
+	
+	
+	{#if showAchievement}
+		<svelte:component this={Achievement} input={achievements}/>
+	{/if}
+</div>
 
 <style>
+	select{
+		width: 100%;
+		margin-top: 2rem;
+		margin-bottom: 4rem;
+		padding: 10px;
+		font-size: 16px;
+		border: 1px solid #ccc;
+		border-radius: 5px;
+		background-color: #fff;
+		color: #333;
+		outline: none;
+	}
+
+	select:hover {
+  		border-color: #999;
+	}
+
+	select:focus {
+	border-color: #2196F3;
+	box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+	}
+
+	.dropdown{
+		position: relative;
+		width: 60%;
+	}
 </style>
