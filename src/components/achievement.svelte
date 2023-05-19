@@ -31,12 +31,23 @@
 
 <style>
 	p{
-		font-size: 2rem;
+		font-size: 1.5rem;
 		color: black;
 	}
+
 	.achievement{
-		background-color: #fff;
-		width: 50rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background: aliceblue;
+		border-radius: 5px;
+		transition: all .4s ease;
+		width: fit-content;
+		box-shadow: 10px 10px rgba(0,0,0,.25);
+	}
+
+	.achievement:hover{
+  		box-shadow: 20px 20px rgba(0,0,0,.25);
 	}
 
 	.not-found{
