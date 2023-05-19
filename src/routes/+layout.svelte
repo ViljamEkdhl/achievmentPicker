@@ -39,7 +39,7 @@
 	h1 {
 		font-size: 20px;
 		color: aliceblue;
-		font-family: "Motiva Sans", Sans-serif;
+		font-family: 'Inter', sans-serif;
 	}
 
 </style>
