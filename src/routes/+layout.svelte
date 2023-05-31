@@ -1,9 +1,13 @@
 <script>
+	import GetSteamId from "../components/getSteamId.svelte";
+
 
 </script>
 
 <nav>
 	<h1>AchievementPicker</h1>
+
+	<GetSteamId/>
 </nav>
 
 <section class="content">
@@ -31,6 +35,7 @@
 	nav {
 		grid-area: top;
 		display: flex;
+		justify-content: space-between;
 		padding-left: 27px;
 		background-color: #171a21;
 	}	

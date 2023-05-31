@@ -1,6 +1,7 @@
 <script>
 	import SteamProfile from '../components/steamProfile.svelte';
 	import Dropdown from '../components/dropdown.svelte';
+	import GetSteamId from '../components/getSteamId.svelte';
 
 	let userId = '';
 
@@ -60,6 +61,13 @@
 		<Dropdown content={profile.ownedGames} userId={userId} customUrl={profile.customUrl}/>
 		{/if}
 	</div>
+</div>
+
+<div class="profile-info">
+	{#if success}
+	<SteamProfile image={profile.img} name={profile.name}/>
+	<Dropdown content={profile.ownedGames} userId={userId} customUrl={profile.customUrl}/>
+	{/if}
 </div>
 
 <style>
