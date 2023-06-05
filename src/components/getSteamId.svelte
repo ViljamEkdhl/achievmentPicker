@@ -49,6 +49,8 @@
 </div>
 
 <style>
+    
+
     .id-lookup{
         display: flex;
         justify-content: center;
@@ -57,6 +59,23 @@
     }
 
     p{
+        color: aliceblue;
+		font-family: 'Inter', sans-serif;
         padding-right: 10px;
+    }
+
+    input{
+        height: 2rem;
+        border-radius: 5px;
+    }
+
+    button{
+        padding: 10px;
+		color: white;
+		background-color: #2196F3;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
     }
 </style>
