@@ -5,8 +5,36 @@
         const payload = {
 			searchParam: searchParam,
 		};
-    }
 
+        const response = await fetch(`/getId`, {
+			method: 'POST',
+			body: JSON.stringify(payload)
+		});
+
+		if (!response.ok) {
+			throw new Error('Network response was not ok');
+		}
+
+		const res = await response.json().catch((err) => {
+			console.error('Error parsing response as JSON:', err);
+			return null;
+		});
+
+		if (res) {
+            let id = res.body.response
+
+            if(id.success == 1){
+                console.log('Fetch successful')
+                console.log(id.steamid)
+
+                searchParam = id.steamid
+            }
+
+		} else {
+			console.error('Empty or invalid response from API');
+		}
+
+    }
 </script>
 
 <div class="id-lookup">

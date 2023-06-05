@@ -63,13 +63,6 @@
 	</div>
 </div>
 
-<div class="profile-info">
-	{#if success}
-	<SteamProfile image={profile.img} name={profile.name}/>
-	<Dropdown content={profile.ownedGames} userId={userId} customUrl={profile.customUrl}/>
-	{/if}
-</div>
-
 <style>
 	.page-content{
 		display: flex;
