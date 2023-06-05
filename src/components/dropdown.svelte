@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Achievement from "./achievement.svelte";
+	import Achievement from './achievement.svelte';
+	import { onMount, beforeUpdate, afterUpdate } from 'svelte';
 	export let content: Array<any>;
 	export let userId: any;
 	export let customUrl: any;
@@ -7,6 +8,8 @@
 	let showAchievement = false;
 
 	let achievements: any;
+
+	let isSorted = false;
 
 	async function handleSubmit(event: Event & { currentTarget: HTMLSelectElement }) {
 		const payload = {
@@ -29,25 +32,36 @@
 		} else {
 			console.error('Empty or invalid response from API');
 		}
-
 	}
+
+	onMount(() => {
+		console.log('Mounted');
+		content.sort((a, b) => a.name.localeCompare(b.name));
+		isSorted = true;
+	});
+
+	afterUpdate(() => {
+		isSorted = true;
+	});
+
 </script>
 
 <div class="dropdown">
-	<select on:change={handleSubmit}>
-		{#each content as item}
-			<option value={item.appid}>{item.name}</option>
-		{/each}
-	</select>
-	
-	
-	{#if showAchievement}
-		<svelte:component this={Achievement} input={achievements}/>
+	{#if isSorted}
+		<select on:change={handleSubmit}>
+			{#each content as item}
+				<option value={item.appid}>{item.name}</option>
+			{/each}
+		</select>
+
+		{#if showAchievement}
+			<svelte:component this={Achievement} input={achievements} />
+		{/if}
 	{/if}
 </div>
 
 <style>
-	select{
+	select {
 		width: 100%;
 		margin-top: 2rem;
 		margin-bottom: 4rem;
@@ -61,15 +75,15 @@
 	}
 
 	select:hover {
-  		border-color: #999;
+		border-color: #999;
 	}
 
 	select:focus {
-	border-color: #2196F3;
-	box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+		border-color: #2196f3;
+		box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
 	}
 
-	.dropdown{
+	.dropdown {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
