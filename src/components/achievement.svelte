@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, onDestroy } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	export let input: Array<{ title: string; description: string }>;
 	let randomElement = 0;
 
@@ -7,7 +7,7 @@
 		randomElement = index;
 	};
 
-  onMount(() => {
+	onMount(() => {
 		setRandomIndex(Math.floor(Math.random() * input.length));
 	});
 
@@ -15,9 +15,9 @@
 		setRandomIndex(0);
 	});
 
-  $: {
-    setRandomIndex(Math.floor(Math.random() * input.length));
-  }
+	$: {
+		setRandomIndex(Math.floor(Math.random() * input.length));
+	}
 </script>
 
 {#if input && input.length > 0}
@@ -30,28 +30,29 @@
 {/if}
 
 <style>
-	p{
+	p {
 		font-size: 1.5rem;
 		color: black;
+		margin-left: 1.5rem;
+		margin-right: 1.5rem;
 	}
 
-	.achievement{
+	.achievement {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		background: aliceblue;
 		border-radius: 5px;
-		transition: all .4s ease;
+		transition: all 0.4s ease;
 		width: fit-content;
-		box-shadow: 10px 10px rgba(0,0,0,.25);
+		box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 	}
 
-	.achievement:hover{
-  		box-shadow: 20px 20px rgba(0,0,0,.25);
+	.achievement:hover {
+		box-shadow: 8px 8px rgba(0, 0, 0, 0.1);
 	}
 
-	.not-found{
+	.not-found {
 		background-color: #fff;
 	}
-
 </style>
