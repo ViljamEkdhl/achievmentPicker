@@ -30,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@vercel/analytics": "^1.0.1",
 		"jsdom": "^22.0.0"
 	}
 }
