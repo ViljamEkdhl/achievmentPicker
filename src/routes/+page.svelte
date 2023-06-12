@@ -10,14 +10,14 @@
 	 */
 	let success;
 
-  	/**
+	/**
 	 * @type {any}
 	 */
 	let profile;
 
 	async function handleSubmit() {
 		const payload = {
-			userId: userId,
+			userId: userId
 		};
 		// Call an API to authenticate the user
 		const response = await fetch(`/getUser`, {
@@ -50,21 +50,23 @@
 			<label>
 				<input bind:value={userId} required />
 			</label>
-	
+
 			<button class="submit" type="submit">🔍</button>
 		</form>
 	</div>
-	
+
 	<div class="profile-info">
 		{#if success}
-		<SteamProfile image={profile.img} name={profile.name}/>
-		<Dropdown content={profile.ownedGames} userId={userId} customUrl={profile.customUrl}/>
+			<SteamProfile image={profile.img} name={profile.name} />
+			{#key (profile.ownedGames, userId, profile.customUrl)}
+				<Dropdown content={profile.ownedGames} {userId} customUrl={profile.customUrl} />
+			{/key}
 		{/if}
 	</div>
 </div>
 
 <style>
-	.page-content{
+	.page-content {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -95,26 +97,26 @@
 		padding: 10px;
 		font-size: 16px;
 		color: white;
-		background-color: #2196F3;
+		background-color: #2196f3;
 		border: none;
 		border-radius: 5px;
 		cursor: pointer;
 		transition: background-color 0.3s ease;
 	}
 
-	p{
+	p {
 		color: black;
 		font-family: 'Poppins', sans-serif;
 		font-size: 20px;
 	}
 
-	.profile-info{
+	.profile-info {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 
-	.submit:hover{
+	.submit:hover {
 		background-color: #0d8bf1;
 	}
 </style>
