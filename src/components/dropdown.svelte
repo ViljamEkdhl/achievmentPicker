@@ -35,9 +35,14 @@
 	}
 
 	onMount(() => {
-		console.log('Mounted');
-		content.sort((a, b) => a.name.localeCompare(b.name));
-		isSorted = true;
+		try {
+			console.log('Mounted');
+			content.sort((a, b) => a.name.localeCompare(b.name));
+			isSorted = true;
+		} catch (error) {
+			console.log('User might not have a public profile or an error has occured');
+			isSorted = false;
+		}
 	});
 
 	afterUpdate(() => {
@@ -47,6 +52,7 @@
 </script>
 
 <div class="dropdown">
+	
 	{#if isSorted}
 		<select on:change={handleSubmit}>
 			{#each content as item}
