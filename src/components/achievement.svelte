@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import refresh from "../assets/refresh.svg"
 	export let input: Array<{ title: string; description: string }>;
 	let randomElement = 0;
 
@@ -24,10 +25,13 @@
 	<div class="achievement">
 		<p>Name: {input[randomElement].title}</p>
 		<p>Description: {input[randomElement].description}</p>
+		<button on:click={() => setRandomIndex(Math.floor(Math.random() * input.length))}> <img src={refresh} alt="refresh"></button>
 	</div>
 {:else}
 	<p class="not-found">No achievements found.</p>
 {/if}
+
+
 
 <style>
 	p {
@@ -37,11 +41,16 @@
 		margin-right: 1.5rem;
 	}
 
+	button {
+		background-color: white;
+		border-style: none;
+	}
+
 	.achievement {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		background: aliceblue;
+		background: white;
 		border-radius: 5px;
 		transition: all 0.4s ease;
 		width: fit-content;

@@ -15,13 +15,13 @@ export async function POST({ request }) {
 
 // TODO: Implementera error handeling för om profilen är private får man inga achievements.
 async function fetchAchievements(id: String, game: String, customUrl: String) {
-	console.log(customUrl);
-	console.log(game);
+	//console.log(customUrl);
+	//console.log(game);
 	const url = `${customUrl}stats/${game}/achievements`;
 	const response = await fetch(url);
 	const res = await response.text();
-	console.log("RESULT FROM ACHIEVEMENTS FETCH")
-	console.log(res)
+	//console.log("RESULT FROM ACHIEVEMENTS FETCH")
+	//console.log(res)
 
 	let test = parseString(res);
 

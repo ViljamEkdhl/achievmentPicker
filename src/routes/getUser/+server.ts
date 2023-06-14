@@ -37,8 +37,8 @@ async function fetchOwnedGames(id: String) {
 	const url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${STEAM_KEY}&steamid=${id}&format=json&include_appinfo=true`;
 	const response = await fetch(url);
 	const res = await response.json();
-	console.log("RESULT FROM OWNED GAMES FETCH")
-	console.log(res.response.games)
+	//console.log("RESULT FROM OWNED GAMES FETCH")
+	//console.log(res.response.games)
 
 	if(res.response.games === undefined){
 		return []
