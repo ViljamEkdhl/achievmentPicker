@@ -1,5 +1,8 @@
 <script>
+	import Modal from '../components/modal.svelte';
+
 	let searchParam = '';
+	let showModal = false;
 
 	async function handleSubmit() {
 		const payload = {
@@ -36,7 +39,7 @@
 </script>
 
 <div class="id-lookup">
-	<p>Find Id</p>
+	<button on:click={() => (showModal = true)}> Click me! </button>
 	<form on:submit|preventDefault={handleSubmit}>
 		<label>
 			<input bind:value={searchParam} required />
@@ -46,6 +49,19 @@
 	</form>
 </div>
 
+<Modal bind:showModal>
+	<h2 slot="header">
+		How to use this site
+	</h2>
+
+	<ol class="definition-list">
+		<li>If you don't have the Steam64 ID of the profile you are looking for, you can use the search field in the top right corner. Enter the person's custom tag, such as "wlilliam," and click the search button.</li>
+		<li>Copy the Steam64 ID from the search results.</li>
+		<li>Paste the copied Steam64 ID into the box located in the middle of the screen.</li>
+		<li>Choose the game from which you want to retrieve an achievement. Please note that this site is unable to access achievements from <strong>private profiles</strong>.</li>
+	</ol>
+</Modal>
+
 <style>
 	.id-lookup {
 		display: flex;
@@ -54,19 +70,13 @@
 		margin-right: 1rem;
 	}
 
-	p {
-		color: aliceblue;
-		font-family: 'Inter', sans-serif;
-		padding-right: 10px;
-	}
-
 	input {
 		height: 2rem;
 		border-radius: 5px;
 		width: 75%;
 	}
 
-	button {
+	.submit {
 		padding: 10px;
 		color: white;
 		background-color: #2196f3;
@@ -74,6 +84,12 @@
 		border-radius: 5px;
 		cursor: pointer;
 		transition: background-color 0.3s ease;
+	}
+
+	button {
+		background-color: #171a21;
+		color: aliceblue;
+		border: none;
 	}
 
 	/* Media query for screen width 520px or smaller */
@@ -85,7 +101,7 @@
 			padding-right: 0px;
 		}
 
-		button {
+		.submit {
 			font-size: 10px;
 			padding: 8px;
 		}
@@ -94,10 +110,6 @@
 			font-size: 14px;
 			margin-top: 5px;
 			margin-bottom: 5px;
-		}
-
-		.id-lookup p {
-			display: none; /* Hide the paragraph tag */
 		}
 
 		form{

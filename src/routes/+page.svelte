@@ -1,7 +1,6 @@
 <script>
 	import SteamProfile from '../components/steamProfile.svelte';
 	import Dropdown from '../components/dropdown.svelte';
-	import GetSteamId from '../components/getSteamId.svelte';
 
 	let userId = '';
 
@@ -43,7 +42,9 @@
 	}
 </script>
 
+
 <div class="page-content">
+	
 	<div class="user-form">
 		<p>SteamID</p>
 		<form on:submit|preventDefault={handleSubmit}>

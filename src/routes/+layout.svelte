@@ -2,6 +2,7 @@
 	import GetSteamId from "../components/getSteamId.svelte";
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
+	
 
 	inject({ mode: dev ? 'development' : 'production' });
 
@@ -11,6 +12,7 @@
 	<h1>AchievementPicker</h1>
 
 	<GetSteamId/>
+
 </nav>
 
 <section class="content">
@@ -49,7 +51,7 @@
 		font-family: 'Inter', sans-serif;
 	}
 
-		/* Media query for screen width 520px or smaller */
+		/* Media query for screen width 440px or smaller */
 		@media (max-width: 440px) {
 			nav{
 				justify-content: center;
