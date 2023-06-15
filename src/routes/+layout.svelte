@@ -49,4 +49,15 @@
 		font-family: 'Inter', sans-serif;
 	}
 
+		/* Media query for screen width 520px or smaller */
+		@media (max-width: 440px) {
+			nav{
+				justify-content: center;
+			}
+
+			h1{
+				font-size: 15px;
+				padding-right: 5px;
+			}
+		}
 </style>
