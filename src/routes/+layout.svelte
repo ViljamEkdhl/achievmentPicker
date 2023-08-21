@@ -1,17 +1,28 @@
 <script>
-	import GetSteamId from "../components/getSteamId.svelte";
+	import Modal from '../components/modal.svelte';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 	
 
 	inject({ mode: dev ? 'development' : 'production' });
+	let showModal = false;
 
 </script>
 
 <nav>
 	<h1>AchievementPicker</h1>
 
-	<GetSteamId/>
+	<button on:click={() => (showModal = true)}>   </button>
+	<Modal bind:showModal>
+		<h2 slot="header">
+			How to use this site
+		</h2>
+	
+		<ol class="definition-list">
+			<li>Enter the person's custom tag, such as "wlilliam" or a steam64ID and click the search button.</li>
+			<li>Choose the game from which you want to retrieve an achievement. Please note that this site is unable to access achievements from <strong>private profiles</strong>.</li>
+		</ol>
+	</Modal>
 
 </nav>
 
@@ -49,6 +60,12 @@
 		font-size: 20px;
 		color: aliceblue;
 		font-family: 'Inter', sans-serif;
+	}
+
+	button {
+		background-color: #171a21;
+		color: aliceblue;
+		border: none;
 	}
 
 		/* Media query for screen width 440px or smaller */

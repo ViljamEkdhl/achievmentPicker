@@ -34,6 +34,7 @@
 		});
 
 		if (res) {
+			console.log(res);
 			profile = res.body;
 			success = true;
 		} else {

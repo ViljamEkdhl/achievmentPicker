@@ -12,6 +12,19 @@ export async function POST({ request }) {
 		customUrl: ''
 	};
 
+	//if the user inputs an alias and not the steam64ID
+	if (isNaN(parseInt(input.userId))) {
+		const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${STEAM_KEY}&vanityurl=${input.userId}`;
+		const response = await fetch(url);
+		const res = await response.json();
+
+		//console.log("RESULT FROM get64Id FETCH")
+		//console.log(res)
+		input.userId = res.response.steamid;
+	}
+
+	console.log(input.userId)
+
 	const user = await fetchSteamUser(input.userId);
 	const games = await fetchOwnedGames(input.userId);
 	//console.log('GAMES');
@@ -24,6 +37,7 @@ export async function POST({ request }) {
 }
 
 async function fetchSteamUser(id: String) {
+
 	const url = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${STEAM_KEY}&steamids=${id}`;
 	const response = await fetch(url);
 	const res = await response.json();
@@ -40,9 +54,9 @@ async function fetchOwnedGames(id: String) {
 	//console.log("RESULT FROM OWNED GAMES FETCH")
 	//console.log(res.response.games)
 
-	if(res.response.games === undefined){
+	if (res.response.games === undefined) {
 		return []
 	}
-	
+
 	return res.response.games;
 }
