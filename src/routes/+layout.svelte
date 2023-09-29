@@ -48,11 +48,6 @@
 		font-family: 'Inter', sans-serif;
 	}
 
-	button {
-		background-color: #171a21;
-		color: aliceblue;
-		border: none;
-	}
 
 		/* Media query for screen width 440px or smaller */
 		@media (max-width: 440px) {
