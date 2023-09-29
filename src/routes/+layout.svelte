@@ -1,11 +1,9 @@
 <script>
-	import Modal from '../components/modal.svelte';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 	
 
 	inject({ mode: dev ? 'development' : 'production' });
-	let showModal = false;
 
 </script>
 
