@@ -1,6 +1,7 @@
 <script>
 	import SteamProfile from '../components/steamProfile.svelte';
 	import Dropdown from '../components/dropdown.svelte';
+	import Modal from '../components/modal.svelte';
 
 	let userId = '';
 
@@ -13,6 +14,8 @@
 	 * @type {any}
 	 */
 	let profile;
+
+	let showModal = false;
 
 	async function handleSubmit() {
 		const payload = {
@@ -47,7 +50,23 @@
 <div class="page-content">
 	
 	<div class="user-form">
-		<p>SteamID</p>
+
+		<div class="steam-id">
+			<p>SteamID</p>
+
+			<button on:click={() => (showModal = true)}> ?  </button>
+			<Modal bind:showModal>
+				<h2 slot="header">
+					How to use this site
+				</h2>
+			
+				<ol class="definition-list">
+					<li>Enter the person's custom tag, such as "wlilliam" or a steam64ID and click the search button.</li>
+					<li>Choose the game from which you want to retrieve an achievement. Please note that this site is unable to access achievements from <strong>private profiles</strong>.</li>
+				</ol>
+			</Modal>
+		</div>
+
 		<form on:submit|preventDefault={handleSubmit}>
 			<label>
 				<input bind:value={userId} required />
@@ -93,6 +112,17 @@
 		border: none;
 		border-radius: 5px;
 		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+	}
+
+	.steam-id{
+		display: flex;
+	}
+
+	button{
+		border-style: none;
+		background-color: #f5f5f5;
+		font-size: 16px;
+		font-weight: bolder;
 	}
 
 	.submit {

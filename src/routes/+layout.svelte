@@ -12,18 +12,6 @@
 <nav>
 	<h1>AchievementPicker</h1>
 
-	<button on:click={() => (showModal = true)}>   </button>
-	<Modal bind:showModal>
-		<h2 slot="header">
-			How to use this site
-		</h2>
-	
-		<ol class="definition-list">
-			<li>Enter the person's custom tag, such as "wlilliam" or a steam64ID and click the search button.</li>
-			<li>Choose the game from which you want to retrieve an achievement. Please note that this site is unable to access achievements from <strong>private profiles</strong>.</li>
-		</ol>
-	</Modal>
-
 </nav>
 
 <section class="content">
@@ -47,7 +35,7 @@
 	:global(p){
 		color: aliceblue;
 	}
-
+	
 	nav {
 		grid-area: top;
 		display: flex;
